@@ -2,31 +2,44 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="text-center p-6 bg-gray-100">
-      <a href="#" className="flex items-center justify-center mb-5 text-2xl font-semibold text-gray-900">
-        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXVuaXZlcnNpdHkiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTAiIHI9IjEiLz48cGF0aCBkPSJNMjIgMjBWOGgtNGwtNi00LTYgNEgydjEyYTIgMiAwIDAgMCAyIDJoMTZhMiAyIDAgMCAwIDItMiIvPjxwYXRoIGQ9Ik02IDE3di4wMSIvPjxwYXRoIGQ9Ik02IDEzdi4wMSIvPjxwYXRoIGQ9Ik0xOCAxN3YuMDEiLz48cGF0aCBkPSJNMTggMTN2LjAxIi8+PHBhdGggZD0iTTE0IDIydi01YTIgMiAwIDAgMC0yLTJhMiAyIDAgMCAwLTIgMnY1Ii8+PC9zdmc+" className="h-12 mr-3 sm:h-9" alt="university Logo" />
-        UniHub.
-      </a>
-      <span className="block text-sm text-gray-500">
-        © Amit is god. All Rights Reserved. Built with
-        <a href="https://tailwindcss.com" className="text-purple-600 hover:underline"> Tailwind CSS </a>.
-      </span>
-      <ul className="flex justify-center mt-5 space-x-5">
-        {socialLinks.map((link, index) => (
-          <li key={index}>
-            <a href={link.href} className="text-gray-500 hover:text-gray-900">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path fillRule="evenodd" d={link.iconPath} clipRule="evenodd"></path>
-              </svg>
-            </a>
-          </li>
-        ))}
-      </ul>
+    <div className="flex flex-col min-h-screen">
+      {/* Main Content */}
+      <div className="flex-grow">
+        {/* Other content here */}
+      </div>
+
+      {/* Footer */}
+      <div className="text-center p-6 bg-gray-100">
+        <a
+          href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+          className="flex items-center justify-center mb-5 text-2xl font-semibold text-gray-900"
+        >
+          <img
+            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5pam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXVuaXZlcnNpdHkiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTAiIHI9IjEiLz48cGF0aCBkPSJNMjIgMjBWOGgtNGwtNi00LTYgNEgydjEyYTIgMiAwIDAgMCAyIDJoMTZhMiAyIDAgMCAwIDItMiIvPjxwYXRoIGQ9Ik06IDE3di4wMSIvPjxwYXRoIGQ9Ik06IDEzdi4wMSIvPjxwYXRoIGQ9Ik0xOCAxN3YuMDEiLz48cGF0aCBkPSJNMTggMTN2LjAxIi8+PHBhdGggZD0iTTE0IDIydi01YTIgMiAwIDAgMC0yLTJhMiAyIDAgMCAwLTIgMnY1Ii8+PC9zdmc+"
+            className="h-12 mr-3 sm:h-9"
+            alt="university Logo"
+          />
+          UniHub.
+        </a>
+        <span className="block text-sm text-gray-500">
+          © Amit is god. All Rights Reserved. Built with
+          <a href="https://tailwindcss.com" className="text-purple-600 hover:underline"> Tailwind CSS </a>.
+        </span>
+        <ul className="flex justify-center mt-5 space-x-5">
+          {socialLinks.map((link, index) => (
+            <li key={index}>
+              <a href={link.href} className="text-gray-500 hover:text-gray-900">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fillRule="evenodd" d={link.iconPath} clipRule="evenodd"></path>
+                </svg>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
-
-// add social media , github later 
 
 const socialLinks = [
   {

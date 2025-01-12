@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import SearchInput from './ui/SearchInput';
 import Logo from './ui/logo';
 import LoginModal from './ui/LoginModal';
+import CreateButton from './ui/createButton';
 
 
 const Header: React.FC = () => {
@@ -17,8 +18,11 @@ const Header: React.FC = () => {
         {/* Logo*/}
         <Logo />
 
-        {/* SearchBar Component */}
+        {/* div that contains search , login and create */}
+        <div className='flex flex-row gap-2'>
         <SearchInput />
+
+        <CreateButton className='rounded-lg hover:shadow-lg' link='/CreatePosts' children='Create Post'/>
 
         {/* Login Button */}
         <button
@@ -27,6 +31,7 @@ const Header: React.FC = () => {
         >
           Login
         </button>
+        </div>
       </div>
 
       {/* Render the LoginModal component */}
