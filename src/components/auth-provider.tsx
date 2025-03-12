@@ -8,6 +8,8 @@ const PUBLIC_ROUTES = [
     routePaths.VerifyEmail,
     routePaths.ForgotPassword,
     routePaths.ResetPassword,
+    routePaths.SignUp,
+    routePaths.ForgotPassword,
 ];
 
 export const INITIAL_USER = {
