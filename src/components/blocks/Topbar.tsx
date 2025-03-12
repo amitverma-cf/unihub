@@ -22,14 +22,18 @@ const Topbar = () => {
             variant="ghost"
             className="p-0 hover:bg-transparent"
             onClick={() => signOut()}>
-            <LogOut size={24} /> {/* Lucide logout icon */}
+            <LogOut size={24} />
           </Button>
           <Link to={`/profile/${user.id}`} className="flex items-center gap-3">
+            {user.imageUrl ? (
             <img
-              src={user.imageUrl || "/assets/icons/profile-placeholder.svg"}
+              src={user.imageUrl}
               alt="profile"
               className="h-8 w-8 rounded-full"
             />
+            ) : (
+              <User />
+            )}
           </Link>
         </div>
       </div>
