@@ -15,7 +15,7 @@ const Topbar = () => {
   }, [isSuccess, navigate]);
 
   return (
-    <section className="topbar bg-white shadow-md">
+    <section className="z-50 fixed right-0 top-0 h-12 flex flex-row">
       <div className="flex justify-end py-4 px-5">
         <div className="flex gap-4 items-center">
           <Button
