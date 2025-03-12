@@ -34,6 +34,7 @@ const FileUploader = ({ fieldChange, mediaUrl }: FileUploaderProps) => {
         setFileUrl("");
         setFile([]);
         fieldChange([]);
+        console.log(file);
     };
 
     return (

@@ -1,4 +1,4 @@
-import { Earth, Home, MessageCircle, Star, UsersRound, ImagePlus } from "lucide-react";
+import { Earth, Home, Star, UsersRound, ImagePlus } from "lucide-react";
 
 export enum routePaths {
     // Auth

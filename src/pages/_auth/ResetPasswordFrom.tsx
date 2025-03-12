@@ -57,7 +57,7 @@ const ResetPasswordFrom = () => {
     };
 
     validateResetParams();
-  }, [userId, secret]);
+  }, [userId, secret, navigate]);
 
   async function onSubmit(values: z.infer<typeof ResetPasswordFormSchema>) {
     if (!userId || !secret) {

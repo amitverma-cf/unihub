@@ -3,7 +3,6 @@ import { getCurrentUser } from "@/lib/appwrite";
 import { IContextType, IUser } from "@/types";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { toast } from "sonner";
 
 const PUBLIC_ROUTES = [
     routePaths.VerifyEmail,
@@ -59,7 +58,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         if (!isUnauthenticated) {
             setCookie(cookieFallback);
         }
-    }, [location.pathname]);
+    }, [location.pathname, navigate]);
 
     useEffect(() => {
         if (cookie && cookie !== "[]") {

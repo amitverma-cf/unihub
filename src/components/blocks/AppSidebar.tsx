@@ -44,7 +44,7 @@ import { useSignOutAccount } from "@/lib/react-query"
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     const navigate = useNavigate();
-    const { user, setUser, setIsAuthenticated, isLoading } = useUserContext();
+    const { user, setUser, setIsAuthenticated } = useUserContext();
 
     const { mutate: signOut } = useSignOutAccount();
 
@@ -185,7 +185,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                                     </DropdownMenuItem>
                                 </DropdownMenuGroup>
                                 <DropdownMenuSeparator />
-                                <DropdownMenuItem>
+                                <DropdownMenuItem onClick={() => handleSignOut}>
                                     <LogOut />
                                     Log out
                                 </DropdownMenuItem>
