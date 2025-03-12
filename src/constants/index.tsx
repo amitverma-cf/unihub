@@ -29,11 +29,11 @@ export const sidebarLinks = [
         route: routePaths.Home,
         label: "Home",
     },
-    {
-        icon: <MessageCircle />,
-        route: routePaths.Chat,
-        label: TC(routePaths.Chat),
-    },
+    // {
+    //     icon: <MessageCircle />,
+    //     route: routePaths.Chat,
+    //     label: TC(routePaths.Chat),
+    // },
     {
         icon: <Earth />,
         route: routePaths.Explore,
@@ -62,11 +62,11 @@ export const bottombarLinks = [
         route: routePaths.Home,
         label: "Home",
     },
-    {
-        icon: <MessageCircle />,
-        route: routePaths.Chat,
-        label: TC(routePaths.Chat),
-    },
+    // {
+    //     icon: <MessageCircle />,
+    //     route: routePaths.Chat,
+    //     label: TC(routePaths.Chat),
+    // },
     {
         icon: <Earth />,
         route: routePaths.Explore,

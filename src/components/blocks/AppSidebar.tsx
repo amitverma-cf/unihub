@@ -2,13 +2,10 @@ import {
     BadgeCheck,
     Bell,
     ChevronsUpDown,
-    Command,
     CreditCard,
     LogOut,
     Lollipop,
-    MoreHorizontal,
     Sparkles,
-    Trash2,
 } from "lucide-react"
 import {
     Avatar,
@@ -40,17 +37,30 @@ import {
 } from "@/components/ui/sidebar"
 import { useIsMobile } from "@/hooks/use-mobile"
 import { bottombarLinks, routePaths, sidebarLinks } from "@/constants"
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { ThemeToggle } from "../ui/theme-toggle"
+import { INITIAL_USER, useUserContext } from "../auth-provider"
+import { useSignOutAccount } from "@/lib/react-query"
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+    const navigate = useNavigate();
+    const { user, setUser, setIsAuthenticated, isLoading } = useUserContext();
+
+    const { mutate: signOut } = useSignOutAccount();
+
+    const handleSignOut = async (
+        e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    ) => {
+        e.preventDefault();
+        signOut();
+        setIsAuthenticated(false);
+        setUser(INITIAL_USER);
+        navigate("/sign-in");
+    };
+
     const { pathname } = useLocation();
     const isMobile = useIsMobile();
-    const user = {
-        name: "Av",
-        avatar: "",
-        email: "avc"
-    }
+
     return isMobile ? (
         <section className="bg-background text-foreground z-50 flex justify-between items-center w-full fixed bottom-0 rounded-t-[20px] bg-dark-2 px-5 py-4 md:hidden;">
             {bottombarLinks.map((link) => {
@@ -124,7 +134,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                                     className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                                 >
                                     <Avatar className="h-8 w-8 rounded-lg">
-                                        <AvatarImage src={user.avatar} alt={user.name} />
+                                        <AvatarImage src={user.imageUrl} alt={user.name} />
                                         <AvatarFallback className="rounded-lg">CN</AvatarFallback>
                                     </Avatar>
                                     <div className="grid flex-1 text-left text-sm leading-tight">
@@ -143,7 +153,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                                 <DropdownMenuLabel className="p-0 font-normal">
                                     <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                                         <Avatar className="h-8 w-8 rounded-lg">
-                                            <AvatarImage src={user.avatar} alt={user.name} />
+                                            <AvatarImage src={user.imageUrl} alt={user.name} />
                                             <AvatarFallback className="rounded-lg">CN</AvatarFallback>
                                         </Avatar>
                                         <div className="grid flex-1 text-left text-sm leading-tight">

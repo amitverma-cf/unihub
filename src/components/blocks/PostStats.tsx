@@ -9,7 +9,7 @@ import {
     useDeleteSavedPost,
     useGetCurrentUser,
 } from "@/lib/react-query";
-import { Heart, MessageSquareMore } from "lucide-react";
+import { Bookmark, Heart } from "lucide-react";
 
 type PostStatsProps = {
     post: Models.Document;
@@ -88,7 +88,7 @@ const PostStats = ({ post, userId }: PostStatsProps) => {
             </div>
 
             <div className="flex gap-2">
-                <MessageSquareMore
+                <Bookmark
                     className={`${isSaved ? "text-chart-5" : "text-foreground"} cursor-pointer`}
                     size={20}
                     onClick={(e) => handleSavePost(e)}
