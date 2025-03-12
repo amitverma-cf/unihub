@@ -55,7 +55,6 @@ export async function saveUserToDB(user: {
         return newUser;
     } catch (error) {
         console.log(error);
-        return error;
     }
 }
 
@@ -71,7 +70,6 @@ export async function signInAccount(user: { email: string; password: string }) {
         return session;
     } catch (error) {
         console.log(error);
-        return error;
     }
 }
 
@@ -125,7 +123,6 @@ export async function updateEmailVerification(userId: string, secret: string) {
         return verification;
     } catch (error) {
         console.log(error);
-        return error;
     }
 }
 

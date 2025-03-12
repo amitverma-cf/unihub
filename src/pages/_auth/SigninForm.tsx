@@ -17,7 +17,7 @@ import { SigninFormSchema } from "@/lib/validation";
 import ILoader from "@/components/blocks/ILoader";
 import { Link, useNavigate } from "react-router-dom";
 import { routePaths } from "@/constants";
-import { useUserContext } from "@/components/auth-provide";
+import { useUserContext } from "@/components/auth-provider";
 import { useSignInAccount } from "@/lib/react-query";
 import { toast } from "sonner";
 
@@ -48,7 +48,9 @@ const SigninForm = () => {
     if (isLoggedIn) {
       form.reset();
 
-      navigate("/");
+      toast.success("Sign In Successful");
+
+      navigate(routePaths.Home);
     } else {
       toast.error("Login failed. Please try again.");
 
@@ -58,7 +60,7 @@ const SigninForm = () => {
 
   return (
     <Form {...form}>
-      <div className="flex flex-col justify-center items-center max-w-sm">
+      <div className="flex flex-col justify-center items-center max-w-sm px-4 md:px-0">
         <Lollipop size={"60"} />
         <h2 className="text-2xl md:text-3xl font-bold pt-5 sm:pt-12 leading-[140%] tracking-tighter">Sign in to your account</h2>
         <p className="font-light text-foreground/60">Welcome back! Please enter your details.</p>
@@ -99,7 +101,7 @@ const SigninForm = () => {
           <Button type="submit" className="max-w-sm">
             {isUserLoading || isSigningInUser ? (
               <span className="flex flex-row"><ILoader right /> Loading... </span>
-            ) : ("Sign up")}
+            ) : ("Sign in")}
           </Button>
 
           <p className="">

@@ -3,6 +3,7 @@ import { getCurrentUser } from "@/lib/appwrite";
 import { IContextType, IUser } from "@/types";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 const PUBLIC_ROUTES = [
     routePaths.VerifyEmail,
@@ -34,8 +35,40 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const navigate = useNavigate();
     const location = useLocation();
     const [user, setUser] = useState<IUser>(INITIAL_USER);
+    const [cookie, setCookie] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+
+    useEffect(() => {
+        const isPublicRoute = PUBLIC_ROUTES.some(route =>
+            location.pathname.startsWith(route)
+        );
+
+        const cookieFallback = localStorage.getItem("cookieFallback");
+
+        const isUnauthenticated =
+            cookieFallback === "[]" ||
+            cookieFallback === null ||
+            cookieFallback === undefined;
+
+        if (!isPublicRoute && isUnauthenticated) {
+            navigate(routePaths.SignIn);
+            return;
+        }
+
+        if (!isUnauthenticated) {
+            setCookie(cookieFallback);
+        }
+    }, [location.pathname]);
+
+    useEffect(() => {
+        if (cookie && cookie !== "[]") {
+            checkAuthUser();
+        } else {
+            setIsAuthenticated(false);
+            setUser(INITIAL_USER);
+        }
+    }, [cookie]);
 
     const checkAuthUser = async () => {
         setIsLoading(true);
@@ -63,24 +96,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
             setIsLoading(false);
         }
     }
-
-    useEffect(() => {
-        const isPublicRoute = PUBLIC_ROUTES.some(route =>
-            location.pathname.startsWith(route)
-        );
-
-        const cookieFallback = localStorage.getItem("cookieFallback");
-        if (
-            !isPublicRoute &&
-            (cookieFallback === "[]" ||
-                cookieFallback === null ||
-                cookieFallback === undefined)
-        ) {
-            navigate(routePaths.SignIn);
-        }
-
-        checkAuthUser();
-    }, [location.pathname]);
 
     const value = {
         user,

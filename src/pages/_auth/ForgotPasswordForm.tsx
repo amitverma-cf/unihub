@@ -49,7 +49,7 @@ const ForgotPasswordForm = () => {
 
   return (
     <Form {...form}>
-      <div className="flex flex-col justify-center items-center max-w-sm">
+      <div className="flex flex-col justify-center items-center max-w-sm px-4 md:px-0">
         <Lollipop size={"60"} />
         <h2 className="text-2xl md:text-3xl font-bold pt-5 sm:pt-12 leading-[140%] tracking-tighter">Forgot Password</h2>
         <p className="font-light text-foreground/60">Enter your email to receive a password reset link</p>

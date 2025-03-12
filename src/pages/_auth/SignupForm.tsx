@@ -17,7 +17,7 @@ import ILoader from "@/components/blocks/ILoader";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { useCreateUserAccount, useSignInAccount } from "@/lib/react-query";
-import { useUserContext } from "@/components/auth-provide";
+import { useUserContext } from "@/components/auth-provider";
 
 const SignupForm = () => {
   const navigate = useNavigate();
@@ -61,6 +61,8 @@ const SignupForm = () => {
       if (isLoggedIn) {
         form.reset();
 
+        toast.success("Sign Up Successful");
+
         navigate("/");
       } else {
         toast.error("Login failed. Please try again.");
@@ -73,7 +75,7 @@ const SignupForm = () => {
   };
   return (
     <Form {...form}>
-      <div className="flex flex-col justify-center items-center max-w-sm">
+      <div className="flex flex-col justify-center items-center max-w-sm  px-4 md:px-0">
         <Lollipop size={"60"} />
         <h2 className="text-2xl md:text-3xl font-bold pt-5 sm:pt-12 leading-[140%] tracking-tighter">Create a new account</h2>
         <p className="font-light text-foreground/60">Enter your details to Sign Up on Unihub</p>

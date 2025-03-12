@@ -117,7 +117,7 @@ const ResetPasswordFrom = () => {
 
   return (
     <Form {...form}>
-      <div className="flex flex-col justify-center items-center max-w-sm">
+      <div className="flex flex-col justify-center items-center max-w-sm px-4 md:px-0">
         <Lollipop size={"60"} />
         <h2 className="text-2xl md:text-3xl font-bold pt-5 sm:pt-12 leading-[140%] tracking-tighter">Reset Password</h2>
         <p className="font-light text-foreground/60">Create a new password for your account</p>

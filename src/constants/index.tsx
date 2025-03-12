@@ -27,7 +27,7 @@ export const sidebarLinks = [
     {
         icon: <Home />,
         route: routePaths.Home,
-        label: TC(routePaths.Home),
+        label: "Home",
     },
     {
         icon: <MessageCircle />,
@@ -60,7 +60,7 @@ export const bottombarLinks = [
     {
         icon: <Home />,
         route: routePaths.Home,
-        label: TC(routePaths.Home),
+        label: "Home",
     },
     {
         icon: <MessageCircle />,
