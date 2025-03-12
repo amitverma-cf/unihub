@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 import { Button } from "../ui/button";
 import { useSignOutAccount } from "@/lib/react-query";
 import { useUserContext } from "../auth-provider";
+import { LogOut, User } from "lucide-react";
 
 const Topbar = () => {
   const navigate = useNavigate();
@@ -15,25 +15,16 @@ const Topbar = () => {
   }, [isSuccess, navigate]);
 
   return (
-    <section className="topbar">
-      <div className="flex-between py-4 px-5">
-        <Link to="/" className="flex gap-3 items-center">
-          <img
-            src="/assets/images/logo.svg"
-            alt="logo"
-            width={130}
-            height={325}
-          />
-        </Link>
-
-        <div className="flex gap-4">
+    <section className="topbar bg-white shadow-md">
+      <div className="flex justify-end py-4 px-5">
+        <div className="flex gap-4 items-center">
           <Button
             variant="ghost"
-            className="shad-button_ghost"
+            className="p-0 hover:bg-transparent"
             onClick={() => signOut()}>
-            <img src="/assets/icons/logout.svg" alt="logout" />
+            <LogOut size={24} /> {/* Lucide logout icon */}
           </Button>
-          <Link to={`/profile/${user.id}`} className="flex-center gap-3">
+          <Link to={`/profile/${user.id}`} className="flex items-center gap-3">
             <img
               src={user.imageUrl || "/assets/icons/profile-placeholder.svg"}
               alt="profile"
